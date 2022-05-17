@@ -1,0 +1,75 @@
+#include "std_lib_facilities.h"
+
+void swap_v(int a, int b) /*creating function swap_v*/
+{
+    int temp;
+    temp=a,
+    a=b;
+    b=temp;
+}
+
+void swap_r(int& a, int& b) /*creating function swap_r*/
+{
+    int temp;
+    temp=a;
+    a=b;
+    b=temp;
+}
+
+//void swap_cr(const int&a, const int &b) /*creating function swap_cr*/
+//{
+//        int temp;
+//      temp=a;
+//    a=b;
+//  b=temp;
+//}
+
+int main()
+{
+    int x = 7;
+    int y =9;
+
+    cout << "x = " << x <<" and y = " << y << endl; /*printing the value of x and y*/
+
+    swap_v(x, y); /*the values of x and y will not change because they are pass by values*/
+    cout << "after swap_v() x = " << x << " and y = " << y << endl;
+
+    swap_r(x, y); /*the values of x and y will not change because they are pass by reference*/
+    cout << "after swap_r() x = " << x << " and y = " << y << endl;
+    cout << endl;
+
+//  swap_cr(x, y); /*constants cannot be swapped*/
+//  swap_v(7, 9); /*the values of x and y will not change because they are pass by values*/
+//  swap_r(7, 9); /*there is no variables to be assigned to after the swap*/
+//  swap_cr(7, 9); /*constants cannot be swapped*/
+//  cout << "x = " << x << " and y = " << y << endl;
+
+
+    const int cx = 7;
+    const int cy = 9;
+    cout << "cx = " << cx << " and cy = " << cy << endl;
+
+    swap_v(cx, cy); /*the values of x and y will not change because they are pass by values*/
+    cout << "after swap_v() cx = " << cx << " and cy = " << cy << endl;
+    cout << endl;
+
+//  swap_r(cx, cy); /*cannot convert from "const int" to "int&"*/
+//  swap_cr(cx, cy); /*constants cannot be swapped*/
+
+
+
+    double dx = 7.7;
+    double dy = 9.9;
+    cout << "dx = " << dx << " and dy = " << dy << endl; /*printing the values of dx and dy*/
+
+    swap_v(dx, dy); /*the values of x and y will not change because they are pass by values*/
+    cout << "after swap_v() dx = " << dx << " and dy = " << dy << endl;
+//  swap_r(dx, dy); /*cannot convert from double to int*/
+//  swap_cr(dx, dy); /*cannot swap constants*/
+
+    swap_v(7.7, 9.9);
+//  swap_r(7.7, 9.9); /*cannot convert from double to int*/
+//  swap_cr(7.7, 9.9); /*constants cannot be swapped*/
+
+    return 0;
+}
